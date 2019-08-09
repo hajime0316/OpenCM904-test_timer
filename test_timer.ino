@@ -8,8 +8,8 @@ void timer1_interrupt_handler() {
 }
 
 void setup() {
-
   pinMode(BOARD_LED_PIN, OUTPUT);
+
   // タイマ1設定
   //// channeは1を使う
   const int channel = 1;
