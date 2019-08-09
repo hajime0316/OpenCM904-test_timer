@@ -1,15 +1,15 @@
 
 #define PERIOD ((uint32)1000000) // microsec
 
-void flash() {
+void timer1_interrupt_handler() {
   static boolean output = HIGH;
   digitalWrite(BOARD_LED_PIN, output);
   output = !output;
 }
 
 void setup() {
-
   pinMode(BOARD_LED_PIN, OUTPUT);
+
   // タイマ1設定
   //// channeは1を使う
   const int channel = 1;
@@ -20,7 +20,7 @@ void setup() {
   //// コンペアチャンネルの設定
   Timer1.setCompare(channel, Timer1.getOverflow());
   //// 割り込み関数設定
-  Timer1.attachInterrupt(channel, flash);
+  Timer1.attachInterrupt(channel, timer1_interrupt_handler);
   //// タイマのリフレッシュ(設定の適応)
   Timer1.refresh();
   //// タイマ再開
