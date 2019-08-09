@@ -1,5 +1,5 @@
 
-#define PERIOD ((uint32)1000000) // microsec
+#define PERIOD ((uint32)10000) // microsec
 
 void timer1_interrupt_handler() {
   static boolean output = HIGH;
