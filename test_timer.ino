@@ -4,11 +4,13 @@
 void timer1_interrupt_handler() {
   static boolean output = HIGH;
   digitalWrite(BOARD_LED_PIN, output);
+  digitalWrite(6, output);
   output = !output;
 }
 
 void setup() {
   pinMode(BOARD_LED_PIN, OUTPUT);
+  pinMode(6, OUTPUT);
 
   // タイマ1設定
   //// channeは1を使う
