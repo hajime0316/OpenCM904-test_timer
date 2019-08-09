@@ -7,10 +7,11 @@ void flash() {
 }
 
 void setup() {
-  // タイマ1設定
+  // タイマ1設定4
+  pinMode(BOARD_LED_PIN, OUTPUT);
   const int channel = 1;    // channeは1を使う
   Timer1.pause();
-  Timer1.setPeriod(1000);   // 周期1000msec
+  Timer1.setPeriod((uint32)1000000);   // 周期1000000microsec
   Timer1.setCompare(channel, Timer1.getOverflow());
   Timer1.attachInterrupt(channel, flash); // 割り込み関数設定
   Timer1.refresh();
